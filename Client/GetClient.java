@@ -40,13 +40,13 @@ public class GetClient extends Client{
   
   
   //main method
-  //takes 5 arguments, remote-fileName, local-fileName, hostname,TCPport, UDPport
+  //takes 5 arguments, local-fileName, remote-fileName, hostname,TCPport, UDPport
   public static void main(String[] args) throws IOException{
     String name = args[2];
     InetAddress ad = InetAddress.getByName(name);
     int portT = Integer.parseInt(args[3]);
     int portU = Integer.parseInt(args[4]);
-    GetClient p = new GetClient(name,portT,portU,ad,args[1],args[0]);
+    GetClient p = new GetClient(name,portT,portU,ad,args[0],args[1]);
     p.signal();
     p.getFileList();
     p.connectTCP();
