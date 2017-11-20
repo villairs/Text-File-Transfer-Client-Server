@@ -41,10 +41,7 @@ public class PutClient extends Client{
   
   
   
-    //MAIN METHOD
-  // FIRST ARG IS THE LOCAL NAME
-  // SECOND ARG IS THE REMOTE NAME
-  // THIRD ARG IS THE SERVER NAME
+// takes 5 arguments, localFileName, remoteFileName, hostname, TCPport, UDPport
   public static void main(String[] args) throws IOException{
     String name = args[2];
     InetAddress ad = InetAddress.getByName(name);

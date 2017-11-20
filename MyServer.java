@@ -11,8 +11,6 @@ public class MyServer extends Thread{
   boolean cont;
   
 // CONSTRUCTOR
-// USES TCP PORT 65078
-// USES UDP PORT 57116
   public MyServer(){
     try{
       cont= true;
@@ -75,6 +73,7 @@ public class MyServer extends Thread{
       dSock.send(sendP);
       
       String line = fInput.readLine();
+
       //SEND THE REST OF THE PACKETS
       while(line != null){
         sendData = line.getBytes("UTF-8");
@@ -104,6 +103,7 @@ public class MyServer extends Thread{
       out = new PrintWriter(client.getOutputStream(), true);
       in = new BufferedReader(new InputStreamReader(client.getInputStream()));
       System.out.println("TCP connection accepted");
+
       //AFTER ACCEPTING THE CONNECTION, HANDLE THE COMMAND THAT FOLLOWS
       handleCommand();
     }
@@ -113,6 +113,7 @@ public class MyServer extends Thread{
       System.out.println("error with io while accepting TCP connection");}
   }
   
+
   //HANDLE THE SIGNAL FROM THE CLIENT, SEND LIST OF FILES THEN WAIT FOR TCP CONNECTION
   public void handleSignal(){
     updateFiles();
